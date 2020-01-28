@@ -7,7 +7,10 @@
         <h1>Tasks</h1>
     </div>
     <div class="col-12 text-right">
-        <a class="btn-primary btn right create" href="">Aggiungi Nuovo</a>
+        <a class="btn-primary btn right create" href="{{ route('task.create')}}">Aggiungi Nuovo</a>
+    </div>
+    <div class="col-12">
+        {{ $tasks->links() }}
     </div>
     <div class="col-12">
         <table class="table">
