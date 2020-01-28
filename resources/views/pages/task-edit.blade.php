@@ -21,6 +21,6 @@
         >{{$employee -> name}} {{$employee -> lastname}}</option>
       @endforeach
     </select>
-    <button type="submit" class="btn btn-primary mt-3">CREATE</button>
+    <button type="submit" class="btn btn-primary mt-3">UPDATE</button>
   </form>
 @endsection
