@@ -45,4 +45,12 @@ class TaskController extends Controller
         $task -> employees() -> sync($employees);
         return redirect() -> route('home.index');
     }
+
+    public function destroy($id) {
+
+        $task = Task::findOrFail($id);
+        $task -> employees() -> detach();
+        $task -> delete();
+        return redirect() -> route('home.index');
+    }
 }

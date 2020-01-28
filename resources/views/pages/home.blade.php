@@ -43,7 +43,7 @@
                         <a class="btn btn-success" href="{{ route('task.edit' , $task -> id)}}">Aggiorna</a>
                     </td>
                     <td>
-                        <form action="" method="post">
+                        <form action="{{route('task.destroy' , $task -> id )}}" method="post">
                             @method('delete')
                             @csrf
                             <input class="btn btn-danger" value="Elimina" type="submit">
