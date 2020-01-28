@@ -40,7 +40,7 @@
                         </table>
                     </td>
                     <td>
-                        <a class="btn btn-success" href="">Aggiorna</a>
+                        <a class="btn btn-success" href="{{ route('task.edit' , $task -> id)}}">Aggiorna</a>
                     </td>
                     <td>
                         <form action="" method="post">

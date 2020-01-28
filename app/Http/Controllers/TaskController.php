@@ -20,12 +20,29 @@ class TaskController extends Controller
         return view('pages.task-create' , compact('employees'));
     }
 
-     public function store(Request $request){
+    public function store(Request $request){
 
         $data = $request -> all();
         $task = Task::create($data);
         $employees = Employee::find($data['employees']);
         $task -> employees() -> attach($employees);
+        return redirect() -> route('home.index');
+    }
+
+    public function edit($id) {
+        $task = Task::findOrFail($id);
+        $employees = Employee::all();
+        return view('pages.task-edit', compact('task', 'employees'));
+        dd($id);
+    }
+
+    public function update(Request $request, $id) {
+
+        $data = $request -> all();
+        $task = Task::findOrFail($id);
+        $task -> update($data);
+        $employees = Employee::find($data['employees']);
+        $task -> employees() -> sync($employees);
         return redirect() -> route('home.index');
     }
 }
