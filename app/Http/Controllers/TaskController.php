@@ -14,6 +14,12 @@ class TaskController extends Controller
         return view('pages.home' , compact('tasks'));
     }
 
+    public function show($id){
+
+        $task = Task::findOrFail($id);
+        return view('pages.task-show' , compact('task'));
+    }
+
     public function create(){
 
         $employees = Employee::all();

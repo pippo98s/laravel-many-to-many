@@ -20,6 +20,7 @@
                     <th>Title</th>
                     <th>Description</th>
                     <th>Employees</th>
+                    <th>Show</th>
                     <th>Aggiorna</th>
                     <th>Delete</th>
                 </tr>
@@ -30,14 +31,11 @@
                     <td>{{ $task->id }}</td>
                     <td>{{ $task->title }}</td>
                     <td>{{ $task->description }}</td>
+                    <td class="text-center">
+                        {{($task -> employees() -> count())}}
+                    </td>
                     <td>
-                        <table>
-                            <tbody>
-                                @foreach ($task -> employees as $employee)
-                                  <td>{{$employee -> name}} {{$employee -> lastname}}</td>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <a class="btn btn-info" href="{{ route('task.show' , $task -> id)}}">Show</a>
                     </td>
                     <td>
                         <a class="btn btn-success" href="{{ route('task.edit' , $task -> id)}}">Aggiorna</a>
