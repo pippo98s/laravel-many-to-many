@@ -12,15 +12,17 @@
     <label for="description">DESCRIPTION</label>
     <input type="text" class="form-control" name="description" value="{{ $task -> description}}">
     </div>
-    <select multiple class="form-control" name="employees[]">
+    <label for="title">SELECT EMPLOYEES</label>
+    <div class="form-check form-check-inline">
       @foreach ($employees as $employee)
-        <option value="{{ $employee -> id}}"
+        <input class="form-check-input" type="checkbox" name="employees[]" value="{{ $employee -> id}}"
           @if ($task -> employees() -> find($employee -> id))
-              selected
-          @endif  
-        >{{$employee -> name}} {{$employee -> lastname}}</option>
+           checked
+          @endif
+        >
+        <label class="form-check-label">{{$employee -> name}} {{$employee -> lastname}}</label>
       @endforeach
-    </select>
+    </div>
     <button type="submit" class="btn btn-primary mt-3">UPDATE</button>
   </form>
 @endsection

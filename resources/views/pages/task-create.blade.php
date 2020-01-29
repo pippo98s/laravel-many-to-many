@@ -12,11 +12,12 @@
     <label for="description">DESCRIPTION</label>
     <input type="text" class="form-control" name="description">
     </div>
-    <select multiple class="form-control" name="employees[]">
+    <div class="form-check form-check-inline">
       @foreach ($employees as $employee)
-        <option value="{{ $employee -> id}}">{{$employee -> name}} {{$employee -> lastname}}</option>
+        <input class="form-check-input" type="checkbox" name="employees[]" value="{{ $employee -> id}}">
+        <label class="form-check-label">{{$employee -> name}} {{$employee -> lastname}}</label>
       @endforeach
-    </select>
+    </div>
     <button type="submit" class="btn btn-primary mt-3">CREATE</button>
   </form>
 @endsection
